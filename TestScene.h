@@ -10,7 +10,6 @@ class TestScene : public GLScene
 {
 public:
 	TestScene();
-	~TestScene();
 
 	//creation and deletion of this scene
 	void create();
@@ -19,6 +18,12 @@ public:
 	//rendering
 	void prepareRender();
 	void render();
+
+    //unknown
+    const char *GetClassName() const;
+
+protected:
+	~TestScene();
 
 private:
 	GLShader *pFragShader;

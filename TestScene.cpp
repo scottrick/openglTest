@@ -141,8 +141,11 @@ void TestScene::destroy() {
 	glDeleteProgram(shaderProgram);
 	glDeleteBuffers(1, &vbo);
 
-	delete pTextureOne;
-	delete pTextureTwo;
+    pVertShader->Release();
+    pFragShader->Release();
+
+    pTextureOne->Release();
+    pTextureTwo->Release();
 }
 
 void TestScene::prepareRender() {
@@ -187,4 +190,8 @@ void TestScene::render() {
 	glDisable( GL_STENCIL_TEST );
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+const char *TestScene::GetClassName() const {
+    return "TestScene";
 }
